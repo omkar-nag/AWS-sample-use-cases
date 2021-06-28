@@ -43,7 +43,7 @@
             }
             var template = document.getElementById("templateInput").value
             var stackdata = JSON.stringify({"name": stackName, "template":template})
-            fetch("https://t1bpdlkchg.execute-api.ap-south-1.amazonaws.com/default/apiGatewayFunction", {
+            fetch("API_ENDPOINT_OF_LAMBDA_FUNCTION_CREATED_USING_APIGATEWAY", {
                 method:"POST",
                 mode:"cors",
                 body:stackdata
