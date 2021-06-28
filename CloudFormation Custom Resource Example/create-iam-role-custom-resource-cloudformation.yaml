@@ -8,7 +8,7 @@ Resources:
     Type: 'AWS::Lambda::Function'
     Properties:
       Handler: index.handler
-      Role: 'arn:aws:iam::605283557070:role/Custom_Resource_Lambda_IAM_Access'
+      Role: 'ARN_OF_IAM_ROLE_GRANTING_ACCESS_TO_IAM'
       Code:
         ZipFile: !Sub |
           var AWS = require('aws-sdk');
