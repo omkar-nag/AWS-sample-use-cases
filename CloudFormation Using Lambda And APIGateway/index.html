@@ -1,0 +1,55 @@
+<DOCTYPE html>
+<html lang="en">
+    
+    <title>Create CloudFormation</title>
+    
+    <style>
+        
+        #stackName { width: 100%;size: 5ch; }
+        
+        h2 { margin-bottom: 0;}
+        
+        p { font-size: small;}
+        
+        #templateInput {width: 100%; height: 70%; padding: 1ch;}
+
+    </style>
+    
+    <body>
+        <h2>Specify a valid Stack name:</h2>
+    
+        <p>Stack name can include letters (A-Z and a-z), numbers (0-9), and dashes (-).</p>
+    
+        <input  id ="stackName"  type="text" placeholder="Stack Name"><br><br>
+    
+        <h2 style="display: inline;">Upload cloudformation template: </h2>
+    
+        <a href="https://jsonformatter.curiousconcept.com/" target="_blank" >Validate Template?</a> <br><br>
+    
+        <textarea  id="templateInput" placeholder="JSON template goes here.."></textarea>
+    
+        <button onclick="myfunc()" id = "btn">Submit</button>
+    </body>
+
+    <script>
+        myfunc= () => {
+            var valid = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890-";
+            var stackName = document.getElementById("stackName").value
+            for (const c of stackName) {
+                if(!valid.includes(c)){
+                    alert("INVALID STACK NAME")
+                    return
+                }
+            }
+            var template = document.getElementById("templateInput").value
+            var stackdata = JSON.stringify({"name": stackName, "template":template})
+            fetch("https://t1bpdlkchg.execute-api.ap-south-1.amazonaws.com/default/apiGatewayFunction", {
+                method:"POST",
+                mode:"cors",
+                body:stackdata
+            })
+            .then(response => response.json())
+            .then(data => console.log(data));
+        }
+    </script>
+</html>
