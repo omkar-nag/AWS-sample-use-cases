@@ -17,6 +17,7 @@
 - Now our node server must be up and running on port 8080.
 - Get the public ip address of the instance and navigate to the url "http://<INSTANCE-PUBLIC-IP>:8080".
 - It should display "Hello world!".
+
 ![image](https://user-images.githubusercontent.com/72746084/124360078-64fba680-dc45-11eb-822e-2ba60af3c9ca.png)
 
 
