@@ -1,5 +1,6 @@
 #### Scheduling an EC2 instance using CloudWatch Events
 Start time : ```02:30 GMT``` or ```8:00 IST```
+
 Stop time  : ```15:30 GMT``` or ```21:00 IST```
 
 Event Rule:
